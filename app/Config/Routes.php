@@ -48,7 +48,7 @@ $routes->get('/', 'Home::index');
 use App\Controllers\AsistenController;
 
 $routes->get('asisten', 'AsistenController::index');
-$routes->get('asisten/data', 'AsistenController::index');
+$routes->get('asisten/data', 'AsistenController::tampilData');
 
 $routes->match(['get', 'post'], 'asisten/login', [AsistenController::class, 'check']);
 $routes->match(['get', 'post'], 'asisten/simpan', [AsistenController::class, 'simpan']);
