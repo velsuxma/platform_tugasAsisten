@@ -6,7 +6,7 @@ use CodeIgniter\Model;
 
 class AsistenModel extends Model
 {
-    protected $table1 = 'asisten';
+    protected $table = 'asisten';
 
     protected $allowedFields = ['nim', 'nama', 'praktikum', 'ipk'];
 

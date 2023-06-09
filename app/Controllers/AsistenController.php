@@ -3,7 +3,6 @@
 namespace App\Controllers;
 
 use App\Models\AsistenModel;
-use App\Models\LoginAsistenModel;
 
 class AsistenController extends BaseController
 {
@@ -93,20 +92,20 @@ class AsistenController extends BaseController
     public function check()
     {
         $post = $this->request->getPost(['usr', 'pwd']);
-        $model = model(LoginModel::class);
+        $model = model(LoginAsistenModel::class);
         $asisten = $model->ambil($post['usr']);
 
         if ($asisten == null) {
-            return view('/asisten/login');
+            return view('/asisten/loginAsisten');
         }
 
-        if ($post['pwd'] == $asisten['Password']) {
+        if ($post['pwd'] == $asisten['password']) {
             $session = session();
             $session->set('pengguna', $post['usr']);
             $view = new AsistenController;
             return $view->index();
         } else {
-            return view('/asisten/login');
+            return view('/asisten/loginAsisten');
         }
     }
 
