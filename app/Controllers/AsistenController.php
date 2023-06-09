@@ -103,7 +103,7 @@ class AsistenController extends BaseController
             $session = session();
             $session->set('pengguna', $post['usr']);
             $view = new AsistenController;
-            return $view->index();
+            return $view->tampilData();
         } else {
             return view('/asisten/loginAsisten');
         }

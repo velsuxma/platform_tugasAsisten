@@ -60,6 +60,7 @@
                 <?php endforeach; ?>
             </tbody>
         </table>
+        <a href="/AsistenController/logout" class="btn btn-primary rounded">Logout</button>
     </div>
 </body>
 
