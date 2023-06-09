@@ -20,6 +20,7 @@ class LoginAsistenModel extends Model
         $this->save([
             'username' => $record['username'],
             'password' => $record['password'],
+            #halo
         ]);
     }
 
