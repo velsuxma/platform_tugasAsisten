@@ -7,7 +7,7 @@ use CodeIgniter\Model;
 class LoginAsistenModel extends Model
 {
     protected $table = 'login';
-    protected $allowedFields = ['username', 'password'];
+    protected $allowedFields = ['Username', 'Password'];
 
     public function getLogin()
     {
@@ -17,13 +17,13 @@ class LoginAsistenModel extends Model
     public function simpan($record)
     {
         $this->save([
-            'username' => $record['usr'],
-            'password' => $record['pwd'],
+            'Username' => $record['usr'],
+            'Password' => $record['pwd'],
         ]);
     }
 
     public function ambil($usr)
     {
-        return $this->where(['username' => $usr])->first();
+        return $this->where(['Username' => $usr])->first();
     }
 }
