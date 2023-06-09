@@ -93,20 +93,20 @@ class AsistenController extends BaseController
     public function check()
     {
         $post = $this->request->getPost(['usr', 'pwd']);
-        $model = model(LoginAsistenModel::class);
+        $model = model(LoginModel::class);
         $asisten = $model->ambil($post['usr']);
 
         if ($asisten == null) {
-            return view('asisten/loginAsisten', ['eror' => "Usernamme tidak ditemukan"]);
+            return view('/asisten/login');
         }
 
-        if ($post['pwd'] == $asisten['password']) {
+        if ($post['pwd'] == $asisten['Password']) {
             $session = session();
             $session->set('pengguna', $post['usr']);
             $view = new AsistenController;
             return $view->index();
         } else {
-            return view('asisten/loginAsisten', ['eror' => "Paswword tidak ditemukan"]);
+            return view('/asisten/login');
         }
     }
 
@@ -114,6 +114,6 @@ class AsistenController extends BaseController
     {
         $session = session();
         $session->remove('pengguna');
-        return view('asisten/loginAsisten');
+        return view('/asisten/loginAsisten');
     }
 }

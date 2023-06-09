@@ -6,11 +6,10 @@ use CodeIgniter\Model;
 
 class LoginAsistenModel extends Model
 {
-    protected $table1 = 'login';
-
+    protected $table = 'login';
     protected $allowedFields = ['username', 'password'];
 
-    public function getLoginAsisten()
+    public function getLogin()
     {
         return $this->findAll();
     }
@@ -18,19 +17,13 @@ class LoginAsistenModel extends Model
     public function simpan($record)
     {
         $this->save([
-            'username' => $record['username'],
-            'password' => $record['password'],
-            #halo
+            'username' => $record['usr'],
+            'password' => $record['pwd'],
         ]);
     }
 
     public function ambil($usr)
     {
         return $this->where(['username' => $usr])->first();
-    }
-
-    public function ambilPwd($pwd)
-    {
-        return $this->where(['password' => $pwd])->first();
     }
 }
